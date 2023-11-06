@@ -1,4 +1,5 @@
 using Kuhpik;
+using System.Linq;
 using UnityEngine;
 using UnityTools.Extentions;
 
@@ -17,6 +18,10 @@ public class RaceSystem : GameSystem
             car.movementProgress += speed;
             var point = game.level.GetCarPoint(car);
             car.transform.ApplyPoint(point);
+        }
+        if (game.cars.Any(x => x.movementProgress >= config.targetPointsAmmount))
+        {
+            ChangeGameState(GameStateID.Results);
         }
     }
 

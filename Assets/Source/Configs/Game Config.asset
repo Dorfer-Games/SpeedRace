@@ -40,3 +40,4 @@ MonoBehaviour:
   - <giftID>k__BackingField: 7213
     <carIndex>k__BackingField: 7
     <sprite>k__BackingField: {fileID: 0}
+  <targetPointsAmmount>k__BackingField: 10
