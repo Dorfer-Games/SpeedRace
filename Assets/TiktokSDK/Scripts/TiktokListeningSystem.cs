@@ -153,15 +153,15 @@ public class TiktokListeningSystem : GameSystem
         {
             if (serverRespondedObject is LikeData)
             {
-                game.InvokeOnUserLikedEvent((LikeData)serverRespondedObject);
+                game.ttEvents.AddLikeEvent((LikeData)serverRespondedObject);
             }
             else if (serverRespondedObject is GiftData)
             {
-                game.InvokeOnUserGiftedEvent((GiftData)serverRespondedObject);
+                game.ttEvents.AddGiftEvent((GiftData)serverRespondedObject);
             }
             else if (serverRespondedObject is CommentData)
             {
-                game.InvokeOnCommentEvent((CommentData)serverRespondedObject);
+                game.ttEvents.AddCommentEvent((CommentData)serverRespondedObject);
             }
         }
     }

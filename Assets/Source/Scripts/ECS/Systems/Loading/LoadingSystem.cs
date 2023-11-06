@@ -17,6 +17,7 @@ public class LoadingSystem : GameSystem
         {
             Destroy(game.level.gameObject);
         }
+        game.cars.Clear();
 
         var path = $"{_config.path}/{id}";
         var prefab = Resources.Load<LevelComponent>(path);
