@@ -6,9 +6,9 @@ namespace Kuhpik.Extensions
     {
         public static void Log(string message)
         {
-            #if DEBUG
+#if DEBUG
             Debug.Log(message);
-            #endif
+#endif
         }
     }
 }

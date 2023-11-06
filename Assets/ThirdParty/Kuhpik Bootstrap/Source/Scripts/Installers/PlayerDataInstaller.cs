@@ -5,13 +5,13 @@ namespace Kuhpik
 {
     public class PlayerDataInstaller : Installer
     {
-        [SerializeField] bool isTesting;
-        [SerializeField] [ShowIf("isTesting")] SaveData testData;
+        [SerializeField] private bool isTesting;
+        [SerializeField][ShowIf("isTesting")] private SaveData testData;
 
         public override int Order => 2;
 
-        const string saveKey = "saveKey";
-        SaveData data;
+        private const string saveKey = "saveKey";
+        private SaveData data;
 
         public override void Process()
         {
@@ -21,7 +21,7 @@ namespace Kuhpik
             Bootstrap.Instance.EventSave += Save;
         }
 
-        SaveData HandlePlayerData()
+        private SaveData HandlePlayerData()
         {
 #if UNITY_EDITOR
             return isTesting ? testData : Load();
@@ -30,12 +30,12 @@ namespace Kuhpik
 #endif
         }
 
-        void Save()
+        private void Save()
         {
             SaveExtension.Save(data, saveKey);
         }
 
-        SaveData Load()
+        private SaveData Load()
         {
             return SaveExtension.Load(saveKey, new SaveData());
         }

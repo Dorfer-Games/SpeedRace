@@ -7,13 +7,13 @@ namespace Kuhpik
 {
     public class GameStateInstaller : Installer
     {
-        [SerializeField] bool useArray;
-        [SerializeField] [HideIf("useArray")] GameStateID firstGameState;
-        [SerializeField] [ShowIf("useArray")] GameStateID[] gameStatesOrder;
+        [SerializeField] private bool useArray;
+        [SerializeField][HideIf("useArray")] private GameStateID firstGameState;
+        [SerializeField][ShowIf("useArray")] private GameStateID[] gameStatesOrder;
 
         public override int Order => 1;
 
-        FSMProcessor<GameStateID, GameState> fsm;
+        private FSMProcessor<GameStateID, GameState> fsm;
 
         public override void Process()
         {

@@ -64,7 +64,7 @@ namespace Kuhpik
             return type.GetConstructor(parameterTypes).Invoke(parameters);
         }
 
-        static FieldInfo GetFieldRecursive(this Type type, string field, bool isStatic)
+        private static FieldInfo GetFieldRecursive(this Type type, string field, bool isStatic)
         {
             BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly | (isStatic ? BindingFlags.Static : BindingFlags.Instance);
             do
@@ -81,7 +81,7 @@ namespace Kuhpik
             return null;
         }
 
-        static PropertyInfo GetPropertyRecursive(this Type type, string property, bool isStatic)
+        private static PropertyInfo GetPropertyRecursive(this Type type, string property, bool isStatic)
         {
             BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly | (isStatic ? BindingFlags.Static : BindingFlags.Instance);
             do

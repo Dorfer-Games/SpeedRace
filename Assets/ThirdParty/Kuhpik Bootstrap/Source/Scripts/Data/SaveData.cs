@@ -1,8 +1,4 @@
 ﻿using System;
-using UnityEngine;
-using NaughtyAttributes;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace Kuhpik
 {

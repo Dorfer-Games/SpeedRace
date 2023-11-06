@@ -6,7 +6,7 @@ namespace Kuhpik
     {
         public static T Instance { get; protected set; }
 
-        void Awake()
+        private void Awake()
         {
             foreach (var instance in FindObjectsOfType(typeof(T), false))
             {
@@ -23,12 +23,12 @@ namespace Kuhpik
 
         // Just adding a bit more safety
         // https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnApplicationQuit.html
-        void OnApplicationQuit()
+        private void OnApplicationQuit()
         {
             Instance = null;
         }
 
-        void WarnAboutDuplicate(GameObject instance)
+        private void WarnAboutDuplicate(GameObject instance)
         {
             Debug.LogError
             (

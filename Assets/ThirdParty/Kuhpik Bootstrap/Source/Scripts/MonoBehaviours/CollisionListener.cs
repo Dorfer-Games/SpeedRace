@@ -8,22 +8,22 @@ namespace Kuhpik
         public event Action<Transform> CollisionEnterEvent, CollisionExitEvent;
         public event Action<Transform> TriggerEnterEvent, TriggetExitEvent;
 
-        void OnCollisionEnter(Collision collision)
+        private void OnCollisionEnter(Collision collision)
         {
             CollisionEnterEvent?.Invoke(collision.transform);
         }
 
-        void OnCollisionExit(Collision collision)
+        private void OnCollisionExit(Collision collision)
         {
             CollisionExitEvent?.Invoke(collision.transform);
         }
 
-        void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter(Collider other)
         {
             TriggerEnterEvent?.Invoke(other.transform);
         }
 
-        void OnTriggerExit(Collider other)
+        private void OnTriggerExit(Collider other)
         {
             TriggetExitEvent?.Invoke(other.transform);
         }

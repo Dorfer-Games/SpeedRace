@@ -1,10 +1,9 @@
 using UnityEngine;
-using System.Collections;
 
 
 namespace TMPro.Examples
 {
-    
+
     public class Benchmark04 : MonoBehaviour
     {
 
@@ -15,11 +14,12 @@ namespace TMPro.Examples
         public int Steps = 4;
 
         private Transform m_Transform;
+
         //private TextMeshProFloatingText floatingText_Script;
         //public Material material;
 
 
-        void Start()
+        private void Start()
         {
             m_Transform = transform;
 

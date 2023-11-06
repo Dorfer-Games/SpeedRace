@@ -4,7 +4,7 @@ namespace Kuhpik
 {
     public abstract class DontDestroySingleton<T> : Singleton<T> where T : MonoBehaviour
     {
-        void Awake()
+        private void Awake()
         {
             if (Instance == null)
             {

@@ -30,7 +30,7 @@ namespace Kuhpik.Tools
 
     public abstract class DataDrawer<T> : MonoBehaviour where T : class
     {
-        [SerializeField] T data;
+        [SerializeField] private T data;
 
         public void SetData(T data)
         {

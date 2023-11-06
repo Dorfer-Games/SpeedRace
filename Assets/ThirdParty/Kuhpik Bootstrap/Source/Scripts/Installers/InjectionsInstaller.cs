@@ -8,7 +8,7 @@ namespace Kuhpik
 {
     public class InjectionsInstaller : Installer
     {
-        [SerializeField] [ReorderableList] ScriptableObject[] additionalInjections;
+        [SerializeField][ReorderableList] private ScriptableObject[] additionalInjections;
 
         public override int Order => 100;
 
@@ -17,19 +17,19 @@ namespace Kuhpik
             Bootstrap.Instance.GamePreStartEvent += Inject;
         }
 
-        void Inject()
+        private void Inject()
         {
             Inject(Bootstrap.Instance.systems.Values.ToArray(), Bootstrap.Instance.itemsToInject.Concat(additionalInjections).ToArray());
         }
 
-        void Inject(IEnumerable<GameSystem> systems, params object[] injections)
+        private void Inject(IEnumerable<GameSystem> systems, params object[] injections)
         {
             if (injections == null || systems == null || injections.Length == 0) return;
 
             Process(systems, injections);
         }
 
-        void Process(IEnumerable<GameSystem> systems, params object[] injections)
+        private void Process(IEnumerable<GameSystem> systems, params object[] injections)
         {
             foreach (var system in systems)
             {

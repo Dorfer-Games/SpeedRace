@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 namespace Kuhpik
 {
@@ -14,7 +13,7 @@ namespace Kuhpik
         public event Action<TKey> OnStateEnter;
         public event Action<TKey> OnStateExit;
 
-        readonly Dictionary<TKey, TState> states;
+        private readonly Dictionary<TKey, TState> states;
 
         public FSMProcessor()
         {

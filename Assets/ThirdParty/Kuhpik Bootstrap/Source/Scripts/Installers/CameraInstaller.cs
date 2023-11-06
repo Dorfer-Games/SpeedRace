@@ -10,16 +10,16 @@ namespace Kuhpik
 {
     public class CameraInstaller : Installer
     {
-        [SerializeField] bool scaleFOV;
-        [SerializeField] [ShowIf("scaleFOV")] bool allCameras;
-        [SerializeField] [ShowIf("scaleFOV")] bool clampAspectRatio;
-        [SerializeField] [HideIf("allCameras")] Camera[] cameras;
-        [SerializeField] [ShowIf("scaleFOV")] Vector2 targetResolution;
-        [SerializeField] [ShowIf("scaleFOV")] [Tooltip("I commonly use this for tablet devices")] Vector2 screenRatioClamp = Vector2.up;
+        [SerializeField] private bool scaleFOV;
+        [SerializeField][ShowIf("scaleFOV")] private bool allCameras;
+        [SerializeField][ShowIf("scaleFOV")] private bool clampAspectRatio;
+        [SerializeField][HideIf("allCameras")] private Camera[] cameras;
+        [SerializeField][ShowIf("scaleFOV")] private Vector2 targetResolution;
+        [SerializeField][ShowIf("scaleFOV")][Tooltip("I commonly use this for tablet devices")] private Vector2 screenRatioClamp = Vector2.up;
 
         public override int Order => 1000;
 
-        Dictionary<Camera, float> fovDictionary;
+        private Dictionary<Camera, float> fovDictionary;
 
         public override void Process()
         {
@@ -47,7 +47,7 @@ namespace Kuhpik
                 }
 
                 fovDictionary.Add(camera, camera.orthographic ? camera.orthographicSize : camera.fieldOfView);
-                if (autoResize) Resize();                
+                if (autoResize) Resize();
             }
         }
 
@@ -56,10 +56,10 @@ namespace Kuhpik
         /// </summary>
         public void Resize()
         {
-            if (!scaleFOV) 
-            { 
-                Debug.Log("Resize is disabled in Installer's settings"); 
-                return; 
+            if (!scaleFOV)
+            {
+                Debug.Log("Resize is disabled in Installer's settings");
+                return;
             }
 
             var screenAspect = (float)Screen.width / (float)Screen.height;
@@ -74,7 +74,7 @@ namespace Kuhpik
                 var rads = 2f * Mathf.Atan(Mathf.Tan(fov * Mathf.Deg2Rad / 2f) * aspect);
                 var screenRads = 2f * Mathf.Atan(Mathf.Tan(rads / 2f) / screenAspect);
 
-                if (cam.orthographic) cam.orthographicSize = screenRads * Mathf.Rad2Deg; 
+                if (cam.orthographic) cam.orthographicSize = screenRads * Mathf.Rad2Deg;
                 else cam.fieldOfView = screenRads * Mathf.Rad2Deg;
             }
         }

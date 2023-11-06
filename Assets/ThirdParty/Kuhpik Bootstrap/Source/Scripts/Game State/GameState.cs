@@ -8,7 +8,7 @@ namespace Kuhpik
         readonly public GameStateID ID;
         public GameState[] StatesIncludingSubstates { get; private set; }
         public IGameSystem[] Systems;
-        readonly Data data;
+        private readonly Data data;
 
         public GameState(GameStateID id, IEnumerable<IGameSystem> systems)
         {

@@ -1,9 +1,6 @@
+using AYellowpaper.SerializedCollections;
 using System;
 using UnityEngine;
-using NaughtyAttributes;
-using System.Collections;
-using System.Collections.Generic;
-using AYellowpaper.SerializedCollections;
 
 namespace Kuhpik
 {

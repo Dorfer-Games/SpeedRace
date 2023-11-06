@@ -24,27 +24,26 @@ namespace Kuhpik.Tools
     [DefaultExecutionOrder(10)]
     public class Screenshoter : MonoBehaviour
     {
-        [SerializeField] [BoxGroup("Settings")] KeyCode screenshotKey;
-        [SerializeField] [BoxGroup("Settings")] Vector2Int[] targetResolutions;
-        [SerializeField] [BoxGroup("Settings")] List<EScreenTypes> screenTypes;
-        [SerializeField] [BoxGroup("Path")] [ReadOnly] string path;
+        [SerializeField][BoxGroup("Settings")] private KeyCode screenshotKey;
+        [SerializeField][BoxGroup("Settings")] private Vector2Int[] targetResolutions;
+        [SerializeField][BoxGroup("Settings")] private List<EScreenTypes> screenTypes;
+        [SerializeField][BoxGroup("Path")][ReadOnly] private string path;
 
 #if UNITY_EDITOR
 
-        [Button] void SelectFolder() { path = EditorUtility.OpenFolderPanel("Choose output directory", "", ""); }
-        [Button] void OpenFolder() { if (Directory.Exists(path)) System.Diagnostics.Process.Start("explorer.exe", path.Replace("/", "\\")); }
-        [Button] void Capture() { if (!isBusy) StartCoroutine(ScreenshoterRoutine()); }
+        [Button] private void SelectFolder() { path = EditorUtility.OpenFolderPanel("Choose output directory", "", ""); }
+        [Button] private void OpenFolder() { if (Directory.Exists(path)) System.Diagnostics.Process.Start("explorer.exe", path.Replace("/", "\\")); }
+        [Button] private void Capture() { if (!isBusy) StartCoroutine(ScreenshoterRoutine()); }
 
-        CameraInstaller cameraInstaller;
-        List<Vector2Int> indexesList;
-        EditorWindow gameView;
-        object sizeHolder;
-        bool isBusy;
-        int index;
+        private CameraInstaller cameraInstaller;
+        private List<Vector2Int> indexesList;
+        private EditorWindow gameView;
+        private object sizeHolder;
+        private bool isBusy;
+        private int index;
+        private Dictionary<Vector2Int, int> indexes;
 
-        Dictionary<Vector2Int, int> indexes;
-
-        void InitScreenTypes()
+        private void InitScreenTypes()
         {
             if (screenTypes.Count == 0)
             {
@@ -65,7 +64,8 @@ namespace Kuhpik.Tools
                 }
             }
         }
-        void Awake()
+
+        private void Awake()
         {
             InitScreenTypes();
             sizeHolder = GetType("GameViewSizes").FetchProperty("instance").FetchProperty("currentGroup");
@@ -88,7 +88,7 @@ namespace Kuhpik.Tools
             }
         }
 
-        void OnDestroy()
+        private void OnDestroy()
         {
             for (int i = indexesList.Count - 1; i >= 0; i--)
             {
@@ -96,7 +96,7 @@ namespace Kuhpik.Tools
             }
         }
 
-        void Update()
+        private void Update()
         {
             if (Input.GetKeyDown(screenshotKey) && !isBusy)
             {
@@ -104,7 +104,7 @@ namespace Kuhpik.Tools
             }
         }
 
-        IEnumerator ScreenshoterRoutine()
+        private IEnumerator ScreenshoterRoutine()
         {
             isBusy = true;
             Time.timeScale = 0;
@@ -131,8 +131,8 @@ namespace Kuhpik.Tools
             isBusy = false;
         }
 
-        void CaptureScreenshot(Vector2Int resolution)
-        {   
+        private void CaptureScreenshot(Vector2Int resolution)
+        {
             var screenshot = ScreenCapture.CaptureScreenshotAsTexture();
             foreach (var screenType in screenTypes)
             {
@@ -142,11 +142,11 @@ namespace Kuhpik.Tools
 
                 int screenNumber = Directory.GetFiles(ShotPath).Length + 1;
                 string fileName = $"Screenshot {screenNumber}." + screenType;
-                
-                while(File.Exists(ShotPath + "/" + fileName))
+
+                while (File.Exists(ShotPath + "/" + fileName))
                 {
                     screenNumber++;
-                    fileName= $"Screenshot {screenNumber}." + screenType;
+                    fileName = $"Screenshot {screenNumber}." + screenType;
                 }
                 File.WriteAllBytes(Path.Combine(ShotPath, $"Screenshot {screenNumber}." + screenType), screenshot.EncodeToJPG());
             }
@@ -155,17 +155,17 @@ namespace Kuhpik.Tools
 
         #region Helpers
 
-        Type GetType(string type)
+        private Type GetType(string type)
         {
             return typeof(EditorWindow).Assembly.GetType("UnityEditor." + type);
         }
 
-        EditorWindow GetWindow(Type type)
+        private EditorWindow GetWindow(Type type)
         {
             return EditorWindow.GetWindow(type);
         }
 
-        object GetFixedResolution(int width, int height)
+        private object GetFixedResolution(int width, int height)
         {
             object sizeType = Enum.Parse(GetType("GameViewSizeType"), "FixedResolution");
             return GetType("GameViewSize").CreateInstance(sizeType, width, height, "temporary");

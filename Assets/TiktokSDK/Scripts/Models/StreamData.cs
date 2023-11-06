@@ -1,10 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 [Serializable]
-public class StreamData 
+public class StreamData
 {
     public string command;
     public Options options;
@@ -12,9 +9,9 @@ public class StreamData
     public StreamData(string command, string service, string uniqId)
     {
         this.command = command;
-        options = new Options(service,uniqId);
+        options = new Options(service, uniqId);
     }
-    
+
 }
 [Serializable]
 public class Options

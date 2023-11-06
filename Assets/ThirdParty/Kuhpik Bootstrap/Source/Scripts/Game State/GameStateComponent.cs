@@ -7,15 +7,14 @@ namespace Kuhpik
 {
     public class GameStateComponent : MonoBehaviour
     {
-        [SerializeField] GameStateID id;
-        [SerializeField] bool useAdditionalStates;
-        [SerializeField] [ReorderableList] [ShowIf("useAdditionalStates")] GameStateID[] additionalStatesInTheBegining;
-        [SerializeField] [ReorderableList] [ShowIf("useAdditionalStates")] GameStateID[] additionalStatesInTheEnd;
+        [SerializeField] private GameStateID id;
+        [SerializeField] private bool useAdditionalStates;
+        [SerializeField][ReorderableList][ShowIf("useAdditionalStates")] private GameStateID[] additionalStatesInTheBegining;
+        [SerializeField][ReorderableList][ShowIf("useAdditionalStates")] private GameStateID[] additionalStatesInTheEnd;
 
         [Header("DEBUG")]
-        [SerializeField, ReadOnly] List<string> systemNames;
-
-        GameState state;
+        [SerializeField, ReadOnly] private List<string> systemNames;
+        private GameState state;
 
         public GameStateID ID => id;
         public bool UseAdditionalStates => useAdditionalStates;
@@ -41,7 +40,7 @@ namespace Kuhpik
             return state;
         }
 
-        void GetSystemsRecursively(List<IGameSystem> systems, Transform target)
+        private void GetSystemsRecursively(List<IGameSystem> systems, Transform target)
         {
             if (!target.gameObject.activeSelf) return;
 
@@ -57,7 +56,7 @@ namespace Kuhpik
             }
         }
 
-        void DisplaySystemsInInspector(List<IGameSystem> systems)
+        private void DisplaySystemsInInspector(List<IGameSystem> systems)
         {
             systemNames = systems.Select(x => x.GetType().Name).ToList();
         }

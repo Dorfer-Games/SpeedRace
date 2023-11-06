@@ -7,10 +7,10 @@ namespace Kuhpik
 {
     public class UIManager : MonoBehaviour
     {
-        static Dictionary<Type, UIScreen> uiScreensByType;
-        static UIScreen[] uiScreens;
+        private static Dictionary<Type, UIScreen> uiScreensByType;
+        private static UIScreen[] uiScreens;
 
-        void Start()
+        private void Start()
         {
             uiScreens = FindObjectsOfType<UIScreen>(true);
             uiScreensByType = uiScreens.Where(x => x.GetType() != typeof(UIScreen)).ToDictionary(x => x.GetType(), x => x);
@@ -56,7 +56,7 @@ namespace Kuhpik
             return uiScreensByType[typeof(T)] as T;
         }
 
-        void TryOpenScreenWithState(GameStateID id)
+        private void TryOpenScreenWithState(GameStateID id)
         {
             foreach (var screen in uiScreens)
             {

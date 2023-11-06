@@ -11,7 +11,7 @@ namespace Kuhpik
     [DefaultExecutionOrder(500)]
     public class Bootstrap : Singleton<Bootstrap>
     {
-        [SerializeField] GameConfig config;
+        [SerializeField] private GameConfig config;
 
         [field: SerializeField] public SaveData PlayerData { get; private set; }
         [field: SerializeField] public GameData GameData { get; private set; }
@@ -29,11 +29,10 @@ namespace Kuhpik
         internal event Action<GameStateID> StateExitEvent;
 
         internal FSMProcessor<GameStateID, GameState> fsm;
+        private GameState currentState;
+        private GameState lastState;
 
-        GameState currentState;
-        GameState lastState;
-
-        void Start()
+        private void Start()
         {
             itemsToInject.Add(config);
             itemsToInject.Add(new GameData());
@@ -51,17 +50,17 @@ namespace Kuhpik
             LaunchStates();
         }
 
-        void Update()
+        private void Update()
         {
             currentState.Update();
         }
 
-        void LateUpdate()
+        private void LateUpdate()
         {
             currentState.LateUpdate();
         }
 
-        void FixedUpdate()
+        private void FixedUpdate()
         {
             currentState.FixedUpdate();
         }
@@ -77,7 +76,8 @@ namespace Kuhpik
         /// Saves all changes in Player Data to PlayerPrefs.
         /// On level complete\fail use GameRestart() instead.
         /// </summary>
-        [Button] public void SaveGame()
+        [Button]
+        public void SaveGame()
         {
             EventSave?.Invoke();
         }
@@ -110,7 +110,7 @@ namespace Kuhpik
             return lastState.ID;
         }
 
-        void LaunchStates()
+        private void LaunchStates()
         {
             for (int i = 0; i < launchStates.Length; i++)
             {
@@ -118,7 +118,7 @@ namespace Kuhpik
             }
         }
 
-        void ProcessInstallers()
+        private void ProcessInstallers()
         {
             var installers = FindObjectsOfType<Installer>().OrderBy(x => x.Order).ToArray();
 
