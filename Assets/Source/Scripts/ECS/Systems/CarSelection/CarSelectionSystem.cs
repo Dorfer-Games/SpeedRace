@@ -4,8 +4,6 @@ using UnityTools.Extentions;
 
 public class CarSelectionSystem : GameSystem
 {
-    private BoostSystem _boostSystem;
-
     public override void OnStateEnter()
     {
         game.ttEvents.Commented += OnCommented;
@@ -19,12 +17,13 @@ public class CarSelectionSystem : GameSystem
     public override void OnUpdate()
     {
         TryStart();
+        game.ttEvents.TryRaiseEvents();
     }
 
     private void OnCommented(CommentData comment)
     {
         if (!int.TryParse(comment.data.comment, out var index)) return;
-        if (!_boostSystem.ValidateIndex(index)) return;
+        if (index < 0 || index > 7) return;
         if (game.cars.Any(x => x.index == index)) return;
         SpawnCar(index);
     }

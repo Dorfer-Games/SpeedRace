@@ -8,8 +8,8 @@ public class LevelComponent : MonoBehaviour
     public Point GetStartPoint(CarComponent car)
     {
         return new Point(
-            spline.EvaluatePosition(car.index, 0),
-            Quaternion.LookRotation(spline.EvaluateTangent(car.index, 0), Vector3.up)
+            spline.EvaluatePosition(0, 0),
+            Quaternion.LookRotation(spline.EvaluateTangent(0, 0), Vector3.up)
             );
     }
 
@@ -17,8 +17,8 @@ public class LevelComponent : MonoBehaviour
     {
         var repeatedT = Mathf.Repeat(car.movementProgress, 1);
         return new Point(
-            spline.EvaluatePosition(car.index, repeatedT),
-            Quaternion.LookRotation(spline.EvaluateTangent(car.index, repeatedT), Vector3.up)
+            spline.EvaluatePosition(0, repeatedT),
+            Quaternion.LookRotation(spline.EvaluateTangent(0, repeatedT), Vector3.up)
             );
     }
 }
