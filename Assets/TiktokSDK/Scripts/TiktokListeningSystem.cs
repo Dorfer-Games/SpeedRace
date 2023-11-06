@@ -40,7 +40,7 @@ public class TiktokListeningSystem : GameSystem
             getDataTask = new Task(async () => await tcp.SendData(streamDataJSON));
             getDataTask.Start();
             sdkUI.gameObject.SetActive(false);
-            Bootstrap.Instance.ChangeGameState(GameStateID.Game);
+            Bootstrap.Instance.ChangeGameState(GameStateID.Loading);
         }
         else
         {
