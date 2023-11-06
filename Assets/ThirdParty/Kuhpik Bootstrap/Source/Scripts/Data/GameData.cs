@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Kuhpik
@@ -10,6 +11,8 @@ namespace Kuhpik
         public event Action<GiftData> OnUserGiftedEvent;
 
         public LevelComponent level;
+
+        public List<CarComponent> cars = new List<CarComponent>();
 
         public void InvokeOnUserLikedEvent(LikeData likeData)
         {

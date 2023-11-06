@@ -6,6 +6,12 @@ namespace UnityTools.Extentions
 {
     public static class TransformExtensions
     {
+        public static void ApplyPoint(this Transform transform, Point point)
+        {
+            transform.position = point.position;
+            transform.rotation = point.rotation;
+        }
+
         public static Vector3 GetLookRotationY(this Transform transform, Transform target)
         {
             var rotation = Quaternion.LookRotation(target.position - transform.position).eulerAngles;
