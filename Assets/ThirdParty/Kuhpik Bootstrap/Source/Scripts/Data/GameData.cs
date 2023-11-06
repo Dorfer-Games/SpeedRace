@@ -9,6 +9,7 @@ namespace Kuhpik
     {
         public event Action<LikeData> OnUserLikedEvent;
         public event Action<GiftData> OnUserGiftedEvent;
+        public event Action<CommentData> OnCommentEvent;
 
         public LevelComponent level;
 
@@ -16,14 +17,18 @@ namespace Kuhpik
 
         public void InvokeOnUserLikedEvent(LikeData likeData)
         {
-            Debug.Log($"Like {likeData.data.nickname}");
+            Debug.Log("<color=black>Like: </color>" + likeData.data.nickname);
             OnUserLikedEvent?.Invoke(likeData);
         }
-
         public void InvokeOnUserGiftedEvent(GiftData giftData)
         {
-            Debug.Log($"Gift {giftData.data.nickname}");
+            Debug.Log("<color=green>Gift: </color>" + giftData.data.nickname);
             OnUserGiftedEvent?.Invoke(giftData);
+        }
+        public void InvokeOnCommentEvent(CommentData commentData)
+        {
+            Debug.Log("<color=blue>Comment: </color>" + commentData.data.comment);
+            OnCommentEvent?.Invoke(commentData);
         }
     }
 }

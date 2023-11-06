@@ -1,19 +1,18 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 [Serializable]
-public class LikeData
+public class CommentData
 {
     public int eventId;
     public string eventType;
-    public Like data;
+    public Comment data;
 }
 
 [Serializable]
-public class Like
+public class Comment
 {
-    public int likeCount;
-    public int totalLikeCount;
+    public string comment;
     public string userId;
     public string secUid;
     public string uniqueId;
@@ -29,6 +28,4 @@ public class Like
     public object topGifterRank;
     public string msgId;
     public string createTime;
-    public string displayType;
-    public string label;
 }

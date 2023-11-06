@@ -118,6 +118,11 @@ namespace Kuhpik
             }
         }
 
+        public T GetScreen<T>() where T : UIScreen
+        {
+            return UIManager.GetUIScreen<T>();
+        }
+
         private void ProcessInstallers()
         {
             var installers = FindObjectsOfType<Installer>().OrderBy(x => x.Order).ToArray();

@@ -2,7 +2,6 @@ using System;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
-using UnityEngine;
 
 public class ClientTcp : IDisposable
 {
@@ -17,7 +16,14 @@ public class ClientTcp : IDisposable
 
     public bool IsRun { get; set; } = true;
     public bool ServerConnection => serverConnection;
-    public bool StreamConnection => streamConnection;
+    public bool StreamConnection
+    {
+        get => streamConnection;
+        set
+        {
+            streamConnection = value;
+        }
+    }
 
     public event Action<string> OnServerAnswered;
 
@@ -58,7 +64,6 @@ public class ClientTcp : IDisposable
     {
         var stringResponse = "";
         await client.ConnectAsync(hostName, port);
-        Debug.Log("<color=yellow>TiktokSDK:</color><color=green> Tiktok server connection successful! </color>");
         serverConnection = true;
         CreateStream();
         while (IsRun)
@@ -69,7 +74,6 @@ public class ClientTcp : IDisposable
                 stream.Read(response);
 
                 stringResponse += Encoding.UTF8.GetString(response).Trim('\0');
-                Debug.Log(stringResponse);
                 ParseResponse(ref stringResponse);
             }
         }
@@ -82,8 +86,6 @@ public class ClientTcp : IDisposable
         var requestData = Encoding.UTF8.GetBytes(data);
 
         await stream.WriteAsync(requestData);
-        streamConnection = true;
-        Debug.Log("<color=yellow>TiktokSDK:</color><color=green>Tiktok stream connection successful! </color>");
     }
 
     private void CreateStream()
@@ -94,8 +96,8 @@ public class ClientTcp : IDisposable
 
     public void Dispose()
     {
-        stream.Close();
-        client.Close();
+        stream?.Close();
+        client?.Close();
         stream?.Dispose();
         client?.Dispose();
     }

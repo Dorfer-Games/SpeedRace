@@ -6,23 +6,22 @@ public class GiftData
 {
     public int eventId;
     public string eventType;
-    public Like data;
+    public Present data;
 }
 
 [Serializable]
-public class Data
+public class Present
 {
     public int giftId;
     public int repeatCount;
     public string groupId;
-    public MonitorExtra monitorExtra;
     public string userId;
     public string secUid;
     public string uniqueId;
     public string nickname;
     public string profilePictureUrl;
     public int followRole;
-    public List<object> userBadges;
+    public List<UserBadge> userBadges;
     public UserDetails userDetails;
     public FollowInfo followInfo;
     public bool isModerator;
@@ -51,26 +50,4 @@ public class Gift
     public int repeat_count;
     public int repeat_end;
     public int gift_type;
-}
-
-[Serializable]
-public class MonitorExtra
-{
-    public int send_profitapi_dur;
-    public int profitapi_message_dur;
-    public string log_id;
-    public long room_id;
-    public int gift_id;
-    public long send_gift_send_message_success_ms;
-    public long anchor_id;
-    public long to_user_id;
-    public long msg_id;
-    public int repeat_count;
-    public long from_user_id;
-    public long send_gift_profit_api_start_ms;
-    public long send_gift_profit_core_start_ms;
-    public string from_idc;
-    public int gift_type;
-    public long send_gift_req_start_ms;
-    public int repeat_end;
 }
