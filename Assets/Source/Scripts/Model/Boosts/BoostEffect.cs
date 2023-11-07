@@ -9,6 +9,8 @@ public class BoostEffect
 
     public float speedBoost { get; private set; }
 
+    public bool gift { get; private set; }
+
     private float _durationLeft;
     public float durationLeft
     {
@@ -22,10 +24,11 @@ public class BoostEffect
 
     public bool expired => _durationLeft <= 0;
 
-    public BoostEffect(float speedBoost, float durationLeft)
+    public BoostEffect(float speedBoost, float durationLeft, bool gift)
     {
         this.speedBoost = speedBoost;
         this.durationLeft = durationLeft;
+        this.gift = gift;
     }
 
     public void Update(float deltaTime)

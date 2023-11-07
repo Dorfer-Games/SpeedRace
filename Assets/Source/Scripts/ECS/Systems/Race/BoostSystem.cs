@@ -38,7 +38,7 @@ public class BoostSystem : GameSystem
     private void OnGift(int index)
     {
         var car = game.cars.FirstOrDefault(x => x.index == index);
-        ApplyBoost(car, _config.giftBoostSpeed, _config.giftBoostDuration);
+        ApplyBoost(car, _config.giftBoostSpeed, _config.giftBoostDuration, true);
     }
 
     private void OnCommend(CommentData comment)
@@ -52,18 +52,21 @@ public class BoostSystem : GameSystem
     private void OnCommend(int index)
     {
         var car = game.cars.FirstOrDefault(x => x.index == index);
-        ApplyBoost(car, _config.commentBoostSpeed, _config.commentBoostDuration);
+        ApplyBoost(car, _config.commentBoostSpeed, _config.commentBoostDuration, false);
     }
 
-    public void ApplyBoost(CarComponent car, float speedBoost, float duration)
+    public void ApplyBoost(CarComponent car, float speedBoost, float duration, bool gift)
     {
-        car.effects.Add(new BoostEffect(speedBoost, duration));
+        car.isStarted = true;
+        car.effects.Add(new BoostEffect(speedBoost, duration, gift));
+        car.ShowBoost();
     }
 
     private void UpdateEffects()
     {
         foreach (var car in game.cars)
         {
+            car.SetGiftBoost(car.effects.Any(x => x.gift));
             foreach (var effect in car.effects)
             {
                 effect.Update(Time.deltaTime);

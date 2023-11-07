@@ -303,6 +303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d863e3b9579f6fb4eb2970851b2ebd84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <commentBoost>k__BackingField: {fileID: 7242559327831809801}
+  <giftBoost>k__BackingField: {fileID: 4914832006683138884}
 --- !u!1 &6395673217110675256
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,6 +797,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1616513199774007227}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &4914832006683138884 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5934617976624112895, guid: e9730f67bf0ac364fa1bfd6426e2a81b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1616513199774007227}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5109270019253260093
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -864,6 +872,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 210c353f682d35f46a745aec456558f5, type: 3}
+--- !u!198 &7242559327831809801 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2478522775732457524, guid: 210c353f682d35f46a745aec456558f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 5109270019253260093}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7242559327850176291 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2478522775713042462, guid: 210c353f682d35f46a745aec456558f5,

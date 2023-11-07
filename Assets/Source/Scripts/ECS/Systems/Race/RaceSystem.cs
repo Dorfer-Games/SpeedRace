@@ -9,6 +9,16 @@ public class RaceSystem : GameSystemWithScreen<ScoreScreen>
     {
         screen.UpdateProgress();
         MoveCars();
+        UpdateCamera();
+        CheckWin();
+    }
+
+    private void UpdateCamera()
+    {
+        if (game.cars.Count(x => x.isStarted) > 2)
+        {
+            game.level.ShowMainCamera();
+        }
     }
 
     public override void OnStateEnter()
@@ -25,11 +35,16 @@ public class RaceSystem : GameSystemWithScreen<ScoreScreen>
     {
         foreach (var car in game.cars)
         {
+            if (!car.isStarted) continue;
             var speed = GetCarSpeed(car) * Time.deltaTime;
             car.movementProgress += speed;
             var point = game.level.GetCarPoint(car);
             car.transform.ApplyPoint(point);
         }
+    }
+
+    private void CheckWin()
+    {
         if (game.cars.Any(x => x.movementProgress >= config.targetPointsAmmount))
         {
             ChangeGameState(GameStateID.Results);

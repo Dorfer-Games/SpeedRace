@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <prefab>k__BackingField: {fileID: 7829653257873973590, guid: 483801c9c2624474a8e4f3fe71b4fa91,
     type: 3}
-  <color>k__BackingField: {r: 0.29411766, g: 0.8, b: 0.05882353, a: 1}
+  <color>k__BackingField: {r: 0, g: 0.92941177, b: 0.03529412, a: 1}
   <displayName>k__BackingField: GREEN
   <gift>k__BackingField: {fileID: 11400000, guid: bbd432ecee9a2fc45a01f57711772de9,
     type: 2}
