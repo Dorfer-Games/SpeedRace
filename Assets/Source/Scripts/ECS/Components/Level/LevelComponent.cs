@@ -1,9 +1,25 @@
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.Splines;
 
 public class LevelComponent : MonoBehaviour
 {
     [field: SerializeField] public SplineContainer spline { get; private set; }
+
+    [field: SerializeField] public CinemachineVirtualCamera startupCamera { get; private set; }
+    [field: SerializeField] public CinemachineVirtualCamera mainCamera { get; private set; }
+
+    public void ShowMainCamera()
+    {
+        mainCamera.enabled = true;
+        startupCamera.enabled = false;
+    }
+
+    public void ShowStartupCamera()
+    {
+        mainCamera.enabled = false;
+        startupCamera.enabled = true;
+    }
 
     public Point GetStartPoint(CarComponent car)
     {

@@ -6,11 +6,13 @@ public class CarSelectionSystem : GameSystem
 {
     public override void OnStateEnter()
     {
+        game.level.ShowStartupCamera();
         game.ttEvents.Commented += OnCommented;
     }
 
     public override void OnStateExit()
     {
+        game.level.ShowMainCamera();
         game.ttEvents.Commented -= OnCommented;
     }
 
