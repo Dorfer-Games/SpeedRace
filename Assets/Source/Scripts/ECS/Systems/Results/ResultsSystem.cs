@@ -1,5 +1,7 @@
 using Kuhpik;
-using UnityTools.Extentions;
+using System.Collections;
+using System.Linq;
+using UnityEngine;
 
 public class ResultsSystem : GameSystemWithScreen<ResultsScreen>
 {
@@ -7,6 +9,16 @@ public class ResultsSystem : GameSystemWithScreen<ResultsScreen>
     {
         screen.Init(game.cars, game.level.splineLength);
         game.level.ShowStartupCamera();
-        this.Invoke(() => ChangeGameState(GameStateID.Loading), config.resultDuration);
+        StartCoroutine(ReloadRoutine());
+    }
+
+    private IEnumerator ReloadRoutine()
+    {
+        for (int i = 10 - 1; i >= 0; i--)
+        {
+            screen.SetDurationLeft(i);
+            yield return new WaitForSeconds(1);
+        }
+        ChangeGameState(GameStateID.Loading);
     }
 }
