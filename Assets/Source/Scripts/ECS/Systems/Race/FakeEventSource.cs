@@ -33,6 +33,7 @@ public class FakeEventSource : GameSystem
         {
             gift.data.gift.gift_id = Random.Range(0, int.MaxValue);
         }
+        gift.data.nickname = gift.data.gift.gift_id.ToString();
         game.ttEvents.AddGiftEvent(gift);
 
     }

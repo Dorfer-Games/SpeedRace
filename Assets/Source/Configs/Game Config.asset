@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a0bbf493a6018b41b94c2288283a11a, type: 3}
   m_Name: Game Config
   m_EditorClassIdentifier: 
-  <carCount>k__BackingField: 6
   <carPrefabs>k__BackingField:
   - {fileID: 7829653257873973590, guid: 483801c9c2624474a8e4f3fe71b4fa91, type: 3}
   - {fileID: -5583387728100045793, guid: 38487dff7e618484e9cddf769b78f657, type: 3}
@@ -39,11 +38,5 @@ MonoBehaviour:
     <sprite>k__BackingField: {fileID: 0}
   - <giftID>k__BackingField: 8201
     <carIndex>k__BackingField: 5
-    <sprite>k__BackingField: {fileID: 0}
-  - <giftID>k__BackingField: 7375
-    <carIndex>k__BackingField: 6
-    <sprite>k__BackingField: {fileID: 0}
-  - <giftID>k__BackingField: 7213
-    <carIndex>k__BackingField: 7
     <sprite>k__BackingField: {fileID: 0}
   <targetPointsAmmount>k__BackingField: 10
