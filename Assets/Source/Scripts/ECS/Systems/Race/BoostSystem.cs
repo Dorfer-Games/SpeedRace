@@ -28,10 +28,10 @@ public class BoostSystem : GameSystem
 
     private void OnGift(GiftData gift)
     {
-        var giftInfo = config.gifts.FirstOrDefault(x => x.giftID == gift.data.gift.gift_id);
-        if (giftInfo != null)
+        var giftInfo = config.cars.FirstOrDefault(x => x.Value.gift.id == gift.data.gift.gift_id);
+        if (giftInfo.Value != null)
         {
-            OnGift(giftInfo.carIndex);
+            OnGift(giftInfo.Key);
         }
     }
 

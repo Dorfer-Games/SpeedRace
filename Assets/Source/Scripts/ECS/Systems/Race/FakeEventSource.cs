@@ -27,7 +27,7 @@ public class FakeEventSource : GameSystem
         var gift = GenerateObject<GiftData>();
         if (Random.Range(0, 1f) < _incorrectGiftChance)
         {
-            gift.data.gift.gift_id = config.gifts.GetRandom().giftID;
+            gift.data.gift.gift_id = config.cars.GetRandom().Value.gift.id;
         }
         else
         {

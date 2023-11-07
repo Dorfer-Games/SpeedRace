@@ -12,31 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a0bbf493a6018b41b94c2288283a11a, type: 3}
   m_Name: Game Config
   m_EditorClassIdentifier: 
-  <carPrefabs>k__BackingField:
-  - {fileID: 7829653257873973590, guid: 483801c9c2624474a8e4f3fe71b4fa91, type: 3}
-  - {fileID: -5583387728100045793, guid: 38487dff7e618484e9cddf769b78f657, type: 3}
-  - {fileID: -7675893140500069923, guid: 837a351965957654990153cd8cc4d2b7, type: 3}
-  - {fileID: -3359395727382167982, guid: 992ba128905d1a04999a51dfbe35b34c, type: 3}
-  - {fileID: -8481246375109020628, guid: 22ac3c2d13e441f4db93edc95a4fc40a, type: 3}
-  - {fileID: 7248785445702327064, guid: 98731c4c52ee2467399ab3c51df44b7f, type: 3}
+  <cars>k__BackingField:
+    m_keys: 000000000100000002000000030000000400000005000000
+    m_values:
+    - {fileID: 11400000, guid: b28645923ce2ba64ea1966852d471c7e, type: 2}
+    - {fileID: 11400000, guid: b74bce2cbe69c8c499d8a8c765074bbb, type: 2}
+    - {fileID: 11400000, guid: fbc5e9ee5e3f39c4a80d3e6b85a6e753, type: 2}
+    - {fileID: 11400000, guid: d8e3542fdd2a7824ea33f916ab9d61d7, type: 2}
+    - {fileID: 11400000, guid: 2a983c7135912614e917c99e0463429f, type: 2}
+    - {fileID: 11400000, guid: beb6c1a2faee75347bc41bd87b5aebc8, type: 2}
   <baseCarSpeed>k__BackingField: 0.1
-  <gifts>k__BackingField:
-  - <giftID>k__BackingField: 8203
-    <carIndex>k__BackingField: 0
-    <sprite>k__BackingField: {fileID: 0}
-  - <giftID>k__BackingField: 8202
-    <carIndex>k__BackingField: 1
-    <sprite>k__BackingField: {fileID: 0}
-  - <giftID>k__BackingField: 7831
-    <carIndex>k__BackingField: 2
-    <sprite>k__BackingField: {fileID: 0}
-  - <giftID>k__BackingField: 7934
-    <carIndex>k__BackingField: 3
-    <sprite>k__BackingField: {fileID: 0}
-  - <giftID>k__BackingField: 6470
-    <carIndex>k__BackingField: 4
-    <sprite>k__BackingField: {fileID: 0}
-  - <giftID>k__BackingField: 8201
-    <carIndex>k__BackingField: 5
-    <sprite>k__BackingField: {fileID: 0}
   <targetPointsAmmount>k__BackingField: 4
+  <resultDuration>k__BackingField: 10
