@@ -7,16 +7,16 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Road_1A_D
+  m_Name: mat_Resources
   m_Shader: {fileID: 4800000, guid: a2d82c711daf5c74a9e6040320440810, type: 3}
   m_ValidKeywords:
   - _GRAYSCALEFRESNEL_ON
   - _GRAYSCALESPECULAR_ON
   - _MAPPINGGRADIENT_OBJECT_SPACE
   - _MAPPINGTEXTURE_UV
-  m_InvalidKeywords:
-  - _EMISSION
-  m_LightmapFlags: 2
+  - _SHOW_SPECULAR_ON
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -25,6 +25,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -46,7 +50,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: f60c41d9f77e64ae886dfa8236d7bd6f, type: 3}
+        m_Texture: {fileID: 2800000, guid: 648c1c47deec2b4488622326e7506a0b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -61,60 +65,42 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Ramp:
-        m_Texture: {fileID: 2800000, guid: 3078985a0033c4774aef5259fef0fc45, type: 3}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _TextureRamp:
-        m_Texture: {fileID: 2800000, guid: 53401203f9c95e348b6e154e1dc1b727, type: 3}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _TextureRamp1:
-        m_Texture: {fileID: 2800000, guid: 53401203f9c95e348b6e154e1dc1b727, type: 3}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _TextureSample:
-        m_Texture: {fileID: 2800000, guid: f60c41d9f77e64ae886dfa8236d7bd6f, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _TextureSample0:
-        m_Texture: {fileID: 2800000, guid: 53401203f9c95e348b6e154e1dc1b727, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _TextureSample1:
-        m_Texture: {fileID: 2800000, guid: f60c41d9f77e64ae886dfa8236d7bd6f, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _TextureSample2:
-        m_Texture: {fileID: 2800000, guid: 53401203f9c95e348b6e154e1dc1b727, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _TextureSample3:
-        m_Texture: {fileID: 2800000, guid: f60c41d9f77e64ae886dfa8236d7bd6f, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _TextureSample4:
-        m_Texture: {fileID: 2800000, guid: 53401203f9c95e348b6e154e1dc1b727, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _texcoord:
+    - unity_ShadowMasks:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaCutoff: 0.5
+    - _AlphaClip: 0
+    - _Blend: 0
     - _BumpScale: 1
+    - _ClearCoatMask: 0
+    - _ClearCoatSmoothness: 0
     - _Contrast: 1
+    - _Cull: 2
     - _Cutoff: 0.5
+    - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvirLighting: 0
+    - _EnvironmentReflections: 1
     - _FresnelExponent: 2
     - _FresnelPower: 3
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
+    - _GlossMapScale: 0
+    - _Glossiness: 0
+    - _GlossyReflections: 0
     - _Grayscale: 0
     - _GrayscaleFresnel: 1
     - _GrayscaleSpecular: 1
@@ -123,32 +109,31 @@ Material:
     - _MappingGradient: 2
     - _MappingTexture: 0
     - _Metallic: 0
-    - _Mode: 0
     - _OcclusionStrength: 1
-    - _Outline: 0.001
-    - _OutlineWidth: 0.0065
-    - _OutlineWidth2: 0.0065
-    - _Parallax: 0.02
-    - _RampSmooth: 1
-    - _RampThreshold: 0.8
-    - _RimOffset: 1
+    - _OutlineWidth: 0.055
+    - _Parallax: 0.005
+    - _QueueOffset: 0
+    - _RampSmooth: 0.386
+    - _RampThreshold: 0.76
+    - _ReceiveShadows: 1
     - _Saturation: 1
     - _SaturationCompensation: 1
-    - _Shin: 3
+    - _Shin: 11.32
     - _Show_Fresnel: 0
     - _Show_Gradient: 0
-    - _Show_Specular: 0
+    - _Show_Specular: 1
     - _Smooth: 0.5
+    - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _UVSec: 0
+    - _Surface: 0
+    - _WorkflowMode: 1
     - _ZWrite: 1
-    - __dirty: 1
     - _grayscaleFactor: 1
-    - _smoothSpec: 1.5
+    - _smoothSpec: 0.01
     m_Colors:
-    - _ASEOutlineColor: {r: 0, g: 0, b: 0, a: 0}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color1: {r: 0.34999996, g: 0.39999998, b: 0.45, a: 1}
     - _Color2: {r: 1, g: 1, b: 1, a: 1}
@@ -156,10 +141,23 @@ Material:
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
     - _HColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainColor: {r: 1, g: 1, b: 1, a: 1}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 1, g: 1, b: 1, a: 0}
-    - _ShadowColor: {r: 0.34999996, g: 0.39999998, b: 0.45, a: 1}
-    - _SpecColors: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0.4, g: 0.30771613, b: 0.2808, a: 1}
+    - _ShadowColor: {r: 0.84011215, g: 0.84607154, b: 0.8773585, a: 1}
+    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _SpecColors: {r: 0.22700001, g: 0.18608296, b: 0, a: 1}
     - _Vector: {r: 0, g: 0, b: 0, a: 0}
     - _VectorGradient: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!114 &6727058478562628786
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5

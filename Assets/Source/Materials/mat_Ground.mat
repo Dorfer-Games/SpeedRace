@@ -87,7 +87,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Second_Texture:
-        m_Texture: {fileID: 2800000, guid: b46a1e7ec2923e2409c02bb432d236b1, type: 3}
+        m_Texture: {fileID: 2800000, guid: b54c375863d16c74f97b6e6b80d51af4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -113,8 +113,8 @@ Material:
     - Boolean_c565c756886e440e974dd9c29b08cb03_1: 0
     - Vector1_1: 0
     - Vector1_2: 0
-    - Vector1_311befbaf13e4941a3fd31f4dced2bf6: 0.65
-    - Vector1_64f6f124547d4beda162af20b1abfeae: 0.97
+    - Vector1_311befbaf13e4941a3fd31f4dced2bf6: 0.58
+    - Vector1_64f6f124547d4beda162af20b1abfeae: 1
     - Vector1_BDAB29E4_1: 1
     - Vector1_ad826c3b2dff4f009e9601dd40699e93: 0
     - Vector1_f9ed110fdd564aa0b6b96d785648a343: 1
@@ -124,7 +124,7 @@ Material:
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Contrast_S_T: 1
+    - _Contrast_S_T: 0.53
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
@@ -134,7 +134,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _HUE_S_T: 0
+    - _HUE_S_T: 5.84
     - _Mask_Alpha: 1
     - _Mask_Power: -0.31
     - _Mask_Strength: 0.3
@@ -145,7 +145,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _SaturationTex_1: 1
-    - _Saturation_S_T: 1
+    - _Saturation_S_T: 2.14
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -155,8 +155,8 @@ Material:
     - _Surface: 0
     - _Tiling: 1
     - _Tiling_F_T: 0.41
-    - _Tiling_Mask: 0.08
-    - _Tiling_S_T: 4.23
+    - _Tiling_Mask: -0.05
+    - _Tiling_S_T: 2.71
     - _Use_Triplannar_XZ: 1
     - _WorkflowMode: 1
     - _ZWrite: 1

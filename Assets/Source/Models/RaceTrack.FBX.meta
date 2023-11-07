@@ -8,7 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Road_1A_D
-    second: {fileID: 2100000, guid: 83567ed8d25be094093f47358514aac1, type: 2}
+    second: {fileID: 2100000, guid: c424890808368f649a24460d67b96dfc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Unwrap Texture Checker Material
+    second: {fileID: 2100000, guid: c424890808368f649a24460d67b96dfc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
