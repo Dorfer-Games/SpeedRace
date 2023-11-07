@@ -3,11 +3,21 @@ using System.Linq;
 using UnityEngine;
 using UnityTools.Extentions;
 
-public class RaceSystem : GameSystem
+public class RaceSystem : GameSystemWithScreen<ScoreScreen>
 {
     public override void OnUpdate()
     {
         MoveCars();
+    }
+
+    public override void OnStateEnter()
+    {
+        screen.Init(game.cars, game.level.splineLength);
+    }
+
+    public override void OnStateExit()
+    {
+        screen.Dispose();
     }
 
     private void MoveCars()

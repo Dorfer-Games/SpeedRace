@@ -32,11 +32,13 @@ public class CarSelectionSystem : GameSystem
 
     private void SpawnCar(int index)
     {
-        var instance = Instantiate(config.cars[index].prefab, game.level.transform);
-        instance.index = index;
-        var point = game.level.GetStartPoint(instance);
-        instance.transform.ApplyPoint(point);
-        game.cars.Add(instance);
+        var definition = config.cars[index];
+        var carInstance = Instantiate(definition.prefab, game.level.transform);
+        carInstance.index = index;
+        carInstance.definition = definition;
+        var point = game.level.GetStartPoint(carInstance);
+        carInstance.transform.ApplyPoint(point);
+        game.cars.Add(carInstance);
     }
 
     private void TryStart()
