@@ -264,8 +264,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3595113693699740539}
-  m_LocalRotation: {x: 0.42396885, y: 0.28598177, z: -0.14309199, w: 0.8473426}
-  m_LocalPosition: {x: -55, y: 118.3, z: -68.2}
+  m_LocalRotation: {x: 0.19361831, y: 0.787375, z: -0.3053016, w: 0.49934322}
+  m_LocalPosition: {x: -66.246506, y: 17.433754, z: 9.228385}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -297,9 +297,9 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 65.7
+  field of view: 80
   orthographic: 0
-  orthographic size: 38.82512
+  orthographic size: 5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -3651,6 +3651,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Race
+      objectReference: {fileID: 0}
+    - target: {fileID: 7909107192291034982, guid: 8e4c0f3974f9b7f4ab1eea592cca089d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9046016185126190089, guid: 8e4c0f3974f9b7f4ab1eea592cca089d,
         type: 3}
