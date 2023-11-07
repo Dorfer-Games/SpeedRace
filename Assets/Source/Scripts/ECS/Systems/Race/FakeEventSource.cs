@@ -42,7 +42,7 @@ public class FakeEventSource : GameSystem
         var comment = GenerateObject<CommentData>();
         if (Random.Range(0, 1f) < _incorrectCommentChance)
         {
-            comment.data.comment = Random.Range(0, 8).ToString();
+            comment.data.comment = Random.Range(1, config.carCount + 1).ToString();
         }
         else
         {

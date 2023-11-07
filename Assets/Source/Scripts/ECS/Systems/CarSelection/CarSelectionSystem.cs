@@ -22,15 +22,15 @@ public class CarSelectionSystem : GameSystem
 
     private void OnCommented(CommentData comment)
     {
-        if (!int.TryParse(comment.data.comment, out var index)) return;
-        if (index < 0 || index > 7) return;
-        if (game.cars.Any(x => x.index == index)) return;
-        SpawnCar(index);
+        if (!int.TryParse(comment.data.comment, out var carNumber)) return;
+        if (carNumber < 1 || carNumber > config.carCount) return;
+        if (game.cars.Any(x => x.index == carNumber - 1)) return;
+        SpawnCar(carNumber - 1);
     }
 
     private void SpawnCar(int index)
     {
-        var instance = Instantiate(config.carPrefab, game.level.transform);
+        var instance = Instantiate(config.carPrefabs[index], game.level.transform);
         instance.index = index;
         var point = game.level.GetStartPoint(instance);
         instance.transform.ApplyPoint(point);
@@ -39,7 +39,7 @@ public class CarSelectionSystem : GameSystem
 
     private void TryStart()
     {
-        if (game.cars.Count >= 8)
+        if (game.cars.Count >= config.carCount)
         {
             ChangeGameState(GameStateID.Race);
         }

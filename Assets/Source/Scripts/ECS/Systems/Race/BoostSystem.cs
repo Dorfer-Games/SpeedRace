@@ -41,9 +41,9 @@ public class BoostSystem : GameSystem
 
     private void OnCommend(CommentData comment)
     {
-        if (int.TryParse(comment.data.comment, out var index) && ValidateIndex(index))
+        if (int.TryParse(comment.data.comment, out var carNumber) && carNumber > 0 && carNumber <= game.cars.Count)
         {
-            OnCommend(index);
+            OnCommend(carNumber - 1);
         }
     }
 
@@ -51,11 +51,6 @@ public class BoostSystem : GameSystem
     {
         var car = game.cars.FirstOrDefault(x => x.index == index);
         ApplyBoost(car, _config.commentBoostSpeed, _config.commentBoostDuration);
-    }
-
-    public bool ValidateIndex(int index)
-    {
-        return index > 0 && index < game.cars.Count;
     }
 
     public void ApplyBoost(CarComponent car, float speedBoost, float duration)
