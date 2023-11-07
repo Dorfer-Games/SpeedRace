@@ -9,6 +9,8 @@ public class LevelComponent : MonoBehaviour
     [field: SerializeField] public CinemachineVirtualCamera startupCamera { get; private set; }
     [field: SerializeField] public CinemachineVirtualCamera mainCamera { get; private set; }
 
+    public float splineLenght => spline.CalculateLength(0);
+
     public void ShowMainCamera()
     {
         mainCamera.enabled = true;
