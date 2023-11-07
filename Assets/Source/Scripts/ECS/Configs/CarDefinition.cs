@@ -8,4 +8,7 @@ public sealed class CarDefinition : ScriptableObject
     [field: SerializeField] public Color color { get; private set; }
     [field: SerializeField] public string displayName { get; private set; }
     [field: SerializeField] public GiftDefinition gift { get; private set; }
+
+    [field: SerializeField] public Sprite leaderSprite { get; private set; }
+    [field: SerializeField] public Sprite memeberSprite { get; private set; }
 }

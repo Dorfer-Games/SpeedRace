@@ -7,12 +7,13 @@ public class RaceSystem : GameSystemWithScreen<ScoreScreen>
 {
     public override void OnUpdate()
     {
+        screen.UpdateProgress();
         MoveCars();
     }
 
     public override void OnStateEnter()
     {
-        screen.Init(game.cars, game.level.splineLength);
+        screen.Init(game.cars, config.targetPointsAmmount);
     }
 
     public override void OnStateExit()
