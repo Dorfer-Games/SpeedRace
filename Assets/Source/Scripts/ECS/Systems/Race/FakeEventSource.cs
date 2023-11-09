@@ -1,4 +1,5 @@
 ﻿using Kuhpik;
+using System.Linq;
 using UnityEngine;
 using UnityTools.Extentions;
 
@@ -20,9 +21,39 @@ public class FakeEventSource : GameSystem
         {
             InvokeFakeGift();
         }
+        InvokeBoost(KeyCode.Alpha1, 1);
+        InvokeBoost(KeyCode.Alpha2, 2);
+        InvokeBoost(KeyCode.Alpha3, 3);
+        InvokeBoost(KeyCode.Alpha4, 4);
+        InvokeBoost(KeyCode.Alpha5, 5);
+        InvokeBoost(KeyCode.Alpha6, 6);
+
+        InvokeBoostGift(KeyCode.Alpha1, 1);
+        InvokeBoostGift(KeyCode.Alpha2, 2);
+        InvokeBoostGift(KeyCode.Alpha3, 3);
+        InvokeBoostGift(KeyCode.Alpha4, 4);
+        InvokeBoostGift(KeyCode.Alpha5, 5);
+        InvokeBoostGift(KeyCode.Alpha6, 6);
     }
 
-    private void InvokeFakeGift()
+    private void InvokeBoostGift(KeyCode input, int carNumber)
+    {
+        if (Input.GetKeyDown(input) && Input.GetKey(KeyCode.LeftShift))
+        {
+            var giftID = config.cars[carNumber - 1].gift.id;
+            InvokeFakeGift(giftID);
+        }
+    }
+
+    private void InvokeBoost(KeyCode input, int carNumber)
+    {
+        if (Input.GetKeyDown(input) && !Input.GetKey(KeyCode.LeftShift))
+        {
+            InvokeFakeComment(carNumber);
+        }
+    }
+
+    private void InvokeFakeGift(int? giftID = null)
     {
         var gift = GenerateObject<GiftData>();
         if (Random.Range(0, 1f) < _incorrectGiftChance)
@@ -33,12 +64,16 @@ public class FakeEventSource : GameSystem
         {
             gift.data.gift.gift_id = Random.Range(0, int.MaxValue);
         }
+        if (giftID != null)
+        {
+            gift.data.gift.gift_id = (int)giftID;
+        }
         gift.data.nickname = gift.data.gift.gift_id.ToString();
         game.ttEvents.AddGiftEvent(gift);
 
     }
 
-    private void InvokeFakeComment()
+    private void InvokeFakeComment(int? value = null)
     {
         var comment = GenerateObject<CommentData>();
         if (Random.Range(0, 1f) < _incorrectCommentChance)
@@ -48,6 +83,10 @@ public class FakeEventSource : GameSystem
         else
         {
             comment.data.comment = "NOTHING";
+        }
+        if (value != null)
+        {
+            comment.data.comment = value.ToString();
         }
         game.ttEvents.AddCommentEvent(comment);
     }
