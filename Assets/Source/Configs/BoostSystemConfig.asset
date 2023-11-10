@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6005b6ee52f49c54aaeea3b44fd6a55d, type: 3}
   m_Name: BoostSystemConfig
   m_EditorClassIdentifier: 
-  <commentBoostSpeed>k__BackingField: 0.01
+  <commentBoostSpeed>k__BackingField: 0.02
   <commentBoostDuration>k__BackingField: 1
-  <giftBoostSpeed>k__BackingField: 0.025
-  <giftBoostDuration>k__BackingField: 1
+  <giftBoostSpeed>k__BackingField: 0.04
+  <giftBoostDuration>k__BackingField: 1.5

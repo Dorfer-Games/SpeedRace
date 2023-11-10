@@ -21,6 +21,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: d8e3542fdd2a7824ea33f916ab9d61d7, type: 2}
     - {fileID: 11400000, guid: 2a983c7135912614e917c99e0463429f, type: 2}
     - {fileID: 11400000, guid: beb6c1a2faee75347bc41bd87b5aebc8, type: 2}
-  <baseCarSpeed>k__BackingField: 0.1
+  <baseCarSpeed>k__BackingField: 0.04
   <targetPointsAmmount>k__BackingField: 4
   <resultDuration>k__BackingField: 10
+  <loopPointsDisplay>k__BackingField: {fileID: 7003000379442572650, guid: 090112ec736bbf54b998c87e4562c8fa,
+    type: 3}

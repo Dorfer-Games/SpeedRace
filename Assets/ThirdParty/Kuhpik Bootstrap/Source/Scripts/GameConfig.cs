@@ -11,6 +11,7 @@ namespace Kuhpik
         [field: SerializeField] public float baseCarSpeed { get; private set; }
         [field: SerializeField] public float targetPointsAmmount { get; private set; }
         [field: SerializeField] public float resultDuration { get; private set; }
+        [field: SerializeField] public PointsDisplay loopPointsDisplay { get; private set; }
 
         public int carCount => cars.Count;
     }

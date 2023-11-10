@@ -37,9 +37,14 @@ public class RaceSystem : GameSystemWithScreen<ScoreScreen>
         {
             if (!car.isStarted) continue;
             var speed = GetCarSpeed(car) * Time.deltaTime;
+            var oldProgresss = car.movementProgress;
             car.movementProgress += speed;
             var point = game.level.GetCarPoint(car);
             car.transform.ApplyPoint(point);
+            if (Mathf.FloorToInt(car.movementProgress) > Mathf.FloorToInt(oldProgresss))
+            {
+                Instantiate(config.loopPointsDisplay, car.transform.position + Vector3.up * 3, Quaternion.identity, game.level.transform);
+            }
         }
     }
 
