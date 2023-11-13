@@ -48,5 +48,12 @@ namespace Kuhpik
             Debug.Log("<color=blue>Comment: </color>" + commentData.data.comment);
             _comments.Enqueue(commentData);
         }
+
+        public void Clear()
+        {
+            _gifts.Clear();
+            _comments.Clear();
+            _likes.Clear();
+        }
     }
 }

@@ -22,6 +22,7 @@ public class LoadingSystem : GameSystem
         var path = $"{_config.path}/{id}";
         var prefab = Resources.Load<LevelComponent>(path);
         game.level = Instantiate(prefab);
+        game.ttEvents.Clear();
         ChangeGameState(GameStateID.CarSelection);
     }
 
