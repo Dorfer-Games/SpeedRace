@@ -18,7 +18,7 @@ MonoBehaviour:
   <displayName>k__BackingField: ORANGE
   <gift>k__BackingField: {fileID: 11400000, guid: 1e5935b7d125c18448baa7e9e539e90b,
     type: 2}
-  <leaderSprite>k__BackingField: {fileID: 21300000, guid: d5e9a4376337a5e44be431ff5417449b,
+  <leaderSprite>k__BackingField: {fileID: 21300000, guid: 3e53521749ef825418995c80796dc40b,
     type: 3}
-  <memeberSprite>k__BackingField: {fileID: 21300000, guid: ec14925fc1ecd8242b4f0cc2de190599,
+  <memeberSprite>k__BackingField: {fileID: 21300000, guid: af3ee00ece7b6914295932061594efc4,
     type: 3}
