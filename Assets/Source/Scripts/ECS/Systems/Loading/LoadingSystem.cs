@@ -1,5 +1,6 @@
 using Kuhpik;
 using UnityEngine;
+using UnityTools.Extentions;
 using Random = System.Random;
 
 public class LoadingSystem : GameSystem
@@ -23,6 +24,7 @@ public class LoadingSystem : GameSystem
         var prefab = Resources.Load<LevelComponent>(path);
         game.level = Instantiate(prefab);
         game.ttEvents.Clear();
+        game.level.tribines.ForEach(x => x.Value.ResetViewers());
         ChangeGameState(GameStateID.CarSelection);
     }
 

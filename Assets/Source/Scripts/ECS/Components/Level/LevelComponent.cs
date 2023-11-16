@@ -1,10 +1,12 @@
 using Cinemachine;
+using System;
 using UnityEngine;
 using UnityEngine.Splines;
 
 public class LevelComponent : MonoBehaviour
 {
     [field: SerializeField] public SplineContainer spline { get; private set; }
+    [field: SerializeField] public TribuneDict tribines { get; private set; }
 
     [field: SerializeField] public CinemachineVirtualCamera startupCamera { get; private set; }
     [field: SerializeField] public CinemachineVirtualCamera mainCamera { get; private set; }
@@ -39,4 +41,7 @@ public class LevelComponent : MonoBehaviour
             Quaternion.LookRotation(spline.EvaluateTangent(car.index, repeatedT), Vector3.up)
             );
     }
+
+    [Serializable]
+    public class TribuneDict : SerializableDictionary<CarDefinition, TribuneComponent> { }
 }

@@ -25,15 +25,11 @@ public class FakeEventSource : GameSystem
         InvokeBoost(KeyCode.Alpha2, 2);
         InvokeBoost(KeyCode.Alpha3, 3);
         InvokeBoost(KeyCode.Alpha4, 4);
-        InvokeBoost(KeyCode.Alpha5, 5);
-        InvokeBoost(KeyCode.Alpha6, 6);
 
         InvokeBoostGift(KeyCode.Alpha1, 1);
         InvokeBoostGift(KeyCode.Alpha2, 2);
         InvokeBoostGift(KeyCode.Alpha3, 3);
         InvokeBoostGift(KeyCode.Alpha4, 4);
-        InvokeBoostGift(KeyCode.Alpha5, 5);
-        InvokeBoostGift(KeyCode.Alpha6, 6);
     }
 
     private void InvokeBoostGift(KeyCode input, int carNumber)
@@ -88,6 +84,7 @@ public class FakeEventSource : GameSystem
         {
             comment.data.comment = value.ToString();
         }
+        comment.data.nickname = comment.data.comment;
         game.ttEvents.AddCommentEvent(comment);
     }
 

@@ -850,8 +850,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 663639181}
   m_HandleRect: {fileID: 663639180}
   m_Direction: 3
-  m_Value: 0
-  m_Size: 0
+  m_Value: 0.00000052166814
+  m_Size: 0.6100001
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1153,7 +1153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 117}
+  m_AnchoredPosition: {x: 0, y: 116.99986}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1563412181
@@ -2788,6 +2788,8 @@ MonoBehaviour:
     - m_Text: 800X600
       m_Image: {fileID: 0}
     - m_Text: 1080X1350
+      m_Image: {fileID: 0}
+    - m_Text: 550X1000
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5211,6 +5213,7 @@ MonoBehaviour:
   - {x: 1920, y: 1080}
   - {x: 800, y: 600}
   - {x: 1080, y: 1350}
+  - {x: 550, y: 1000}
   fpsList: 1e0000003c00000078000000f0000000
   resolutionDropdown: {fileID: 7949449211434199508}
   fpsDropdown: {fileID: 7949449212313118076}

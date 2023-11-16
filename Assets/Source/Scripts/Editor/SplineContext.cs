@@ -6,10 +6,10 @@ using UnityEngine.Splines;
 
 public class SplineContext : EditorWindow
 {
-    [MenuItem("CONTEXT/SplineContainer/Do Something")]
+    [MenuItem("CONTEXT/SplineContainer/DuplicateSpline")]
     static void DoSomething(MenuCommand command)
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 3; i++)
         {
             Duplicate(command);
         }
@@ -17,7 +17,8 @@ public class SplineContext : EditorWindow
 
     private static void Duplicate(MenuCommand command)
     {
-        var offsetScale = 2.12f;
+        //var offsetScale = 2.12f;
+        var offsetScale = 3.16f;
         var container = command.context as SplineContainer;
         var last = container.Splines.Count - 1;
         var spline = container[last];

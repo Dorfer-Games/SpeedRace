@@ -1,6 +1,4 @@
 ﻿using Kuhpik;
-using System;
-using System.Configuration;
 using System.Linq;
 using UnityEngine;
 
@@ -32,6 +30,7 @@ public class BoostSystem : GameSystem
         if (giftInfo.Value != null)
         {
             OnGift(giftInfo.Key);
+            AddViewer(GetCarByIndex(giftInfo.Key).definition, gift.data.nickname);
         }
     }
 
@@ -46,6 +45,7 @@ public class BoostSystem : GameSystem
         if (int.TryParse(comment.data.comment, out var carNumber) && carNumber > 0 && carNumber <= game.cars.Count)
         {
             OnCommend(carNumber - 1);
+            AddViewer(GetCarByIndex(carNumber - 1).definition, comment.data.nickname);
         }
     }
 
@@ -57,7 +57,7 @@ public class BoostSystem : GameSystem
 
     private CarComponent GetCarByIndex(int index)
     {
-        index = Mathf.Abs(index - 5);
+        index = Mathf.Abs(index - (game.cars.Count - 1));
         return game.cars.FirstOrDefault(x => x.index == index);
     }
 
@@ -79,6 +79,12 @@ public class BoostSystem : GameSystem
             }
             car.effects.RemoveAll(x => x.expired);
         }
+    }
+
+    private void AddViewer(CarDefinition carID, string name)
+    {
+        if (string.IsNullOrEmpty(name)) return;
+        game.level.tribines[carID].AddViewer(name);
     }
 }
 

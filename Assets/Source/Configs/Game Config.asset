@@ -13,12 +13,10 @@ MonoBehaviour:
   m_Name: Game Config
   m_EditorClassIdentifier: 
   <cars>k__BackingField:
-    m_keys: 000000000100000002000000030000000400000005000000
+    m_keys: 00000000010000000200000003000000
     m_values:
     - {fileID: 11400000, guid: b28645923ce2ba64ea1966852d471c7e, type: 2}
     - {fileID: 11400000, guid: b74bce2cbe69c8c499d8a8c765074bbb, type: 2}
-    - {fileID: 11400000, guid: fbc5e9ee5e3f39c4a80d3e6b85a6e753, type: 2}
-    - {fileID: 11400000, guid: d8e3542fdd2a7824ea33f916ab9d61d7, type: 2}
     - {fileID: 11400000, guid: 2a983c7135912614e917c99e0463429f, type: 2}
     - {fileID: 11400000, guid: beb6c1a2faee75347bc41bd87b5aebc8, type: 2}
   <baseCarSpeed>k__BackingField: 0.04

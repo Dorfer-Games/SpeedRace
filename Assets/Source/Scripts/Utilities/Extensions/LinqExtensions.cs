@@ -7,6 +7,31 @@ namespace UnityTools.Extentions
 {
     public static class LinqExtensions
     {
+        public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> sequence)
+        {
+            return sequence.Shuffle(new System.Random());
+        }
+
+        public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> sequence, System.Random randomNumberGenerator)
+        {
+            T swapTemp;
+            var values = sequence.ToList();
+            var currentlySelecting = values.Count;
+            while (currentlySelecting > 1)
+            {
+                var selectedElement = randomNumberGenerator.Next(currentlySelecting);
+                --currentlySelecting;
+                if (currentlySelecting != selectedElement)
+                {
+                    swapTemp = values[currentlySelecting];
+                    values[currentlySelecting] = values[selectedElement];
+                    values[selectedElement] = swapTemp;
+                }
+            }
+
+            return values;
+        }
+
         public static IEnumerable<T> ToEnumerable<T>(this T[,] target)
         {
             foreach (var item in target)
