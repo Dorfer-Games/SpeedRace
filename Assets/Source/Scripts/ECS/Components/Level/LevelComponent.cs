@@ -5,6 +5,8 @@ using UnityEngine.Splines;
 
 public class LevelComponent : MonoBehaviour
 {
+    [SerializeField] private GameObject bubbleStart;
+    [SerializeField] private CameraAnimator cameraAnimator;
     [field: SerializeField] public SplineContainer spline { get; private set; }
     [field: SerializeField] public TribuneDict tribines { get; private set; }
 
@@ -15,12 +17,15 @@ public class LevelComponent : MonoBehaviour
 
     public void ShowMainCamera()
     {
+        bubbleStart.gameObject.SetActive(false);
+        cameraAnimator.SetActiveCamera(true);
         mainCamera.enabled = true;
         startupCamera.enabled = false;
     }
 
     public void ShowStartupCamera()
     {
+        cameraAnimator.SetActiveCamera(false);
         mainCamera.enabled = false;
         startupCamera.enabled = true;
     }
@@ -30,7 +35,7 @@ public class LevelComponent : MonoBehaviour
         return new Point(
             spline.EvaluatePosition(car.index, 0),
             Quaternion.LookRotation(spline.EvaluateTangent(car.index, 0), Vector3.up)
-            );
+        );
     }
 
     public Point GetCarPoint(CarComponent car)
@@ -39,9 +44,11 @@ public class LevelComponent : MonoBehaviour
         return new Point(
             spline.EvaluatePosition(car.index, repeatedT),
             Quaternion.LookRotation(spline.EvaluateTangent(car.index, repeatedT), Vector3.up)
-            );
+        );
     }
 
     [Serializable]
-    public class TribuneDict : SerializableDictionary<CarDefinition, TribuneComponent> { }
+    public class TribuneDict : SerializableDictionary<CarDefinition, TribuneComponent>
+    {
+    }
 }

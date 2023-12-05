@@ -8,6 +8,7 @@ namespace Kuhpik
     {
         public TTSDKEvents ttEvents = new TTSDKEvents();
         public LevelComponent level;
+        public MovementZone MovementZone;
 
         public List<CarComponent> cars = new List<CarComponent>();
     }
