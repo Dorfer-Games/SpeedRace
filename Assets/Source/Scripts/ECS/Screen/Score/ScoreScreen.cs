@@ -9,6 +9,9 @@ public class ScoreScreen : UIScreen
 {
     [SerializeField] private List<ScoreScreenElement> _elements;
     [SerializeField] private Image _leader;
+    [SerializeField] private GameObject _text;
+
+    public GameObject Text => _text;
 
     public void Init(List<CarComponent> cars, float totalDistance)
     {

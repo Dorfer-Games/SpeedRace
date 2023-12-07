@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityTools.Extentions;
 using Random = System.Random;
 
-public class LoadingSystem : GameSystem
+public class LoadingSystem : GameSystemWithScreen<ScoreScreen>
 {
     private LevelLoadingConfig _config;
 
@@ -26,6 +26,8 @@ public class LoadingSystem : GameSystem
         game.ttEvents.Clear();
         game.level.tribines.ForEach(x => x.Value.ResetViewers());
         ChangeGameState(GameStateID.CarSelection);
+
+        screen.Text.SetActive(true);
     }
 
     private int GetLevelID(int levelID)

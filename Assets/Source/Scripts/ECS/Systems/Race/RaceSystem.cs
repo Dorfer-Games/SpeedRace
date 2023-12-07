@@ -17,6 +17,7 @@ public class RaceSystem : GameSystemWithScreen<ScoreScreen>
     {
         if (game.cars.Count(x => x.isStarted) > 0)
         {
+            screen.Text.SetActive(false);
             game.level.ShowMainCamera();
         }
     }

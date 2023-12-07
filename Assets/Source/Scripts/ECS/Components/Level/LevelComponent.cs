@@ -5,7 +5,6 @@ using UnityEngine.Splines;
 
 public class LevelComponent : MonoBehaviour
 {
-    [SerializeField] private GameObject bubbleStart;
     [SerializeField] private CameraAnimator cameraAnimator;
     [field: SerializeField] public SplineContainer spline { get; private set; }
     [field: SerializeField] public TribuneDict tribines { get; private set; }
@@ -17,7 +16,6 @@ public class LevelComponent : MonoBehaviour
 
     public void ShowMainCamera()
     {
-        bubbleStart.gameObject.SetActive(false);
         cameraAnimator.SetActiveCamera(true);
         mainCamera.enabled = true;
         startupCamera.enabled = false;

@@ -85,6 +85,8 @@ public class BoostSystem : GameSystem
     {
         if (string.IsNullOrEmpty(name)) return;
         game.level.tribines[carID].AddViewer(name);
+
+        Debug.Log(carID);
     }
 }
 
